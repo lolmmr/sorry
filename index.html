@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(120deg, #f3c6c6, #f9e3e3);
+            color: #333;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ff4b5c;
+        }
+
+        .flower {
+            position: absolute;
+            animation: float 5s infinite ease-in-out;
+            width: 60px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-200px); opacity: 0; }
+        }
+
+        #buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .forgive {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .not-forgive {
+            background-color: #ff4b5c;
+            color: white;
+            position: absolute;
+        }
+
+        #message {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #555;
+            visibility: hidden;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            .flower {
+                width: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            .flower {
+                width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>I'm Sorry Emii 💔</h1>
+    <div id="buttons">
+        <button class="forgive" onclick="acceptSorry()">I Forgive You ❤️</button>
+        <button class="not-forgive" id="noButton" onmouseover="moveButton()">No</button>
+    </div>
+    <p id="message"></p>
+
+    <!-- Floating flowers -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4usttjW_zBL7EeOY0eAQ6JPjJnb0Im_WinQ&s" class="flower" style="top: 20%; left: 10%;" alt="Flower">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4usttjW_zBL7EeOY0eAQ6JPjJnb0Im_WinQ&s" class="flower" style="top: 50%; left: 70%;" alt="Flower">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4usttjW_zBL7EeOY0eAQ6JPjJnb0Im_WinQ&s" class="flower" style="top: 80%; left: 30%;" alt="Flower">
+
+    <script>
+        const noButton = document.getElementById("noButton");
+        const message = document.getElementById("message");
+
+        function acceptSorry() {
+            message.style.visibility = "visible";
+            message.textContent = "I love you and I'm truly sorry, My EMII 💖";
+        }
+
+        function moveButton() {
+            const randomX = Math.floor(Math.random() * (window.innerWidth - 100));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - 50));
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+    </script>
+</body>
+</html>
